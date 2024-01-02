@@ -46,7 +46,7 @@ Every script runs with usual UNIX flags like -h, --help
 
 ## 📚 Educational Resources
 
-I am not an expert, I am still learning and here are the resources I use and my profile:
+I am not an expert, I am still learning and here are the resources I use and my profiles:
 
 <!--- [Hack The Box](https://app.hackthebox.com/profile/1776662)-->
 <!--- [Try Hack Me](https://tryhackme.com/p/skillz4real)-->
