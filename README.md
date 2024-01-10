@@ -3,7 +3,7 @@
 # Hacking-tools: Minimal Pentesting Tools
 
 <p align="center">
-  <img src="mascot.jpg" alt="Mascot">
+  <img src="mascot.gif" alt="Mascot">
 </p>
 
 ![Python Version](https://img.shields.io/badge/python-3.x-blue.svg) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
